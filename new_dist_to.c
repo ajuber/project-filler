@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   circle_en.c                                        :+:      :+:    :+:   */
+/*   new_dist_to.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/18 02:23:46 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/19 02:50:48 by ajubert          ###   ########.fr       */
+/*   Created: 2016/08/19 02:55:47 by ajubert           #+#    #+#             */
+/*   Updated: 2016/08/19 04:43:02 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-int		circle_en(t_e *e)
+int		new_dist_to(t_e *e, t_pos cir)
 {
-	int static c = 0;
+	int dist;
+	int j;
+	t_pos pos_in_map;
+	t_coor_piece *tmp;
 
-	if (c == 0)
-		position_to_circle(e);
-//	else
-//		verif_position_to_circle(e);
-	c++;
-	move_to_circle(e, e->pos_circle1);
+	tmp = e->coor_piece;
+	j = 0;
+	while (j < e->nb_point)
+	{
+		if (tmp != e->repere)
+		{
+			pos_in_map = ft_pos_in_map(e->me_pos, e->repere->pos, tmp->pos);
+			dist = calc_dist_to(cir, pos_in_map);
+		if (dist < e->dist_center_me)
+		{
+			return (1);
+		}
+		}
+		tmp = tmp->next;
+		j++;
+	}
 	return (0);
 }

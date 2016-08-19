@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/25 14:52:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/17 23:36:08 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/19 02:46:45 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int		main(void)
 		if (result == 2)
 			e.strat = 1;
 		if (e.strat == 1)
-			move_to_en(&e);
+			circle_en(&e);
 		ft_printf("%d %d\n", e.pos_piece.y, e.pos_piece.x);
 		free_piece(e.piece, e.size_piece.y);
 //		ft_free_list_coor(e.coor_piece);

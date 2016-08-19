@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/05 14:28:27 by ajubert           #+#    #+#              #
-#    Updated: 2016/08/17 23:37:16 by ajubert          ###   ########.fr        #
+#    Updated: 2016/08/19 02:58:45 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,15 @@ SRC_C=	main.c\
 		new_coord.c\
 		new_dist_to_en.c\
 		search_point_to_en.c\
-		print_coord_en.c
+		print_coord_en.c\
+		circle_en.c\
+		init_bloc_en.c\
+		mem_bloc_en.c\
+		move_to_circle.c\
+		position_to_circle.c\
+		calc_dist_to.c\
+		new_dist_to.c\
+		search_point_to.c
 
 SRC_O=		$(SRC_C:.c=.o)
 

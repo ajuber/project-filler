@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:51:02 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/18 05:59:17 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/19 04:17:16 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,19 @@ typedef struct		s_e
 	t_bloc_en		en_hd;
 	t_bloc_en		en_bg;
 	t_bloc_en		en_bd;
+	t_pos			en_haut;
+	t_pos			en_bas;
+	t_pos			en_gauche;
+	t_pos			en_droit;
 	int				my_bloc;
 	int				en_bloc;
 	t_pos			pos_circle1;
 	t_pos			pos_circle2;
+	int				valid_circle1;
+	int				valid_circle2;
 	int				what_pos;
+	int				inc1;
+	int				inc2;
 }					t_e;
 
 t_list_str			*ft_create_racine_str(void);
@@ -133,5 +141,11 @@ int					new_dist_to_en(t_e *e);
 void				print_coord_en(t_e *e);
 void				init_bloc_en(t_e *e, int y, int x);
 void				mem_bloc_en(t_e *e, int y, int x);
+int					circle_en(t_e *e);
+void				position_to_circle(t_e *e);
+int					move_to_circle(t_e *e, t_pos cir);
+int					search_point_to(t_e *e, int dist, t_pos cir);
+int					calc_dist_to(t_pos var, t_pos var1);
+int					new_dist_to(t_e *e, t_pos cir);
 
 #endif
