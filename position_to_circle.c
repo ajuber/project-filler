@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 05:44:43 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/19 01:09:14 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/20 01:01:05 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	position_to_circle(t_e *e)
 		else
 			e->pos_circle2.y = e->en_bd.y + 1;
 	}*/
+	if (e->en_bloc == e->en_last_bloc)
+	{
 	if (e->en_bloc == 4)
 	{
 		e->inc1 = -1;
@@ -146,4 +148,17 @@ void	position_to_circle(t_e *e)
 			e->pos_circle2.y = e->en_bas.y + e->inc2;
 		}
 	}
+	}
+	if ((e->en_bloc == 1 && e->en_last_bloc == 2) || (e->en_bloc == 2 && e->en_last_bloc == 1))
+		position_to_circle_haut(e);
+	if ((e->en_bloc == 1 && e->en_last_bloc == 3) || (e->en_bloc == 3 && e->en_last_bloc == 1))
+		position_to_circle_gauche(e);
+	if ((e->en_bloc == 2 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 2))
+		position_to_circle_droite(e);
+	if ((e->en_bloc == 3 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 3))
+		position_to_circle_bas(e);
+//	if ((e->en_bloc == 1 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 1))
+//		position_to_circle_d_hg_bd(e);
+//	if ((e->en_bloc == 2 && e->en_last_bloc == 3) || (e->en_bloc == 3 && e->en_last_bloc == 2))
+//		position_to_circle_d_hd_bg(e);
 }
