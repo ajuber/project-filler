@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/05 14:28:27 by ajubert           #+#    #+#              #
-#    Updated: 2016/08/20 01:02:05 by ajubert          ###   ########.fr        #
+#    Updated: 2016/08/21 02:39:37 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,7 +59,10 @@ SRC_C=	main.c\
 		position_to_circle_bas.c\
 		position_to_circle_droite.c\
 		position_to_circle_gauche.c\
-		position_to_circle_haut.c
+		position_to_circle_haut.c\
+		position_to_circle_d_hd_bg.c\
+		position_to_circle_d_hg_bd.c\
+		verif_valid_circle.c
 
 SRC_O=		$(SRC_C:.c=.o)
 

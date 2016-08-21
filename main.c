@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/25 14:52:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/19 02:46:45 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/21 04:46:54 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ int		main(void)
 	ft_bzero(&e, sizeof(t_e));
 	e.fd = open("debug.txt", O_CREAT | O_RDWR | O_APPEND, 0640);
 	e.fd1 = open("output.txt", O_CREAT | O_RDWR | O_APPEND, 0640);
+	e.fd2 = open("circle.txt", O_CREAT | O_RDWR | O_APPEND, 0640);
 //		ft_printf("%d %d", 8, 2);
 //	if (!(first_map(&e)))
 //		return (0);
+	ft_printf_fd(e.fd2, "valid_circle1 : %d       valid_circle2 : %d\n", e.valid_circle1, e.valid_circle2);
 	search_char(&e);
 	first_map(&e);
 	get_piece(&e);
@@ -65,9 +67,14 @@ int		main(void)
 			}
 		}
 		if (result == 2)
+		{
+			result = -1;
 			e.strat = 1;
+		}
 		if (e.strat == 1)
 			circle_en(&e);
+		if (e.strat == 2)
+			move_to_en(&e);
 		ft_printf("%d %d\n", e.pos_piece.y, e.pos_piece.x);
 		free_piece(e.piece, e.size_piece.y);
 //		ft_free_list_coor(e.coor_piece);

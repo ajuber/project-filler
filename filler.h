@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:51:02 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/19 04:17:16 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/21 02:51:56 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ typedef struct		s_e
 	int				nb_point;
 	int				fd;
 	int				fd1;
+	int				fd2;
 	t_bloc_en		en_hg;
 	t_bloc_en		en_hd;
 	t_bloc_en		en_bg;
@@ -100,6 +101,9 @@ typedef struct		s_e
 	int				what_pos;
 	int				inc1;
 	int				inc2;
+	int				en_last_bloc;
+	int				dir_haut;
+	int				dir_bas;
 }					t_e;
 
 t_list_str			*ft_create_racine_str(void);
@@ -147,5 +151,12 @@ int					move_to_circle(t_e *e, t_pos cir);
 int					search_point_to(t_e *e, int dist, t_pos cir);
 int					calc_dist_to(t_pos var, t_pos var1);
 int					new_dist_to(t_e *e, t_pos cir);
+void				position_to_circle_haut(t_e *e);
+void				position_to_circle_bas(t_e *e);
+void				position_to_circle_gauche(t_e *e);
+void				position_to_circle_droite(t_e *e);
+void				position_to_circle_d_hg_bd(t_e *e);
+void				position_to_circle_d_hd_bg(t_e *e);
+void				verif_valid_circle(t_e *e, t_pos var);
 
 #endif

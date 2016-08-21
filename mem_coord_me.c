@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 07:31:04 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/15 09:23:29 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/21 04:17:07 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,16 @@ void	mem_coord_me(t_e *e)
 		}
 		j++;
 		tmp = tmp->next;
+	}
+	ft_printf_fd(e->fd2, "strat : %d\n", e->strat);
+	if (e->strat == 1)
+	{
+		tmp = e->coor_me;
+		while (tmp->next)
+		{
+			verif_valid_circle(e, tmp->pos);
+			tmp = tmp->next;
+		}
+		ft_printf_fd(e->fd2, "strat : %d\nvalid_circle1 : %d      valid_circle2 : %d\n", e->strat, e->valid_circle1, e->valid_circle2);
 	}
 }
