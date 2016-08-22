@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/05 14:28:27 by ajubert           #+#    #+#              #
-#    Updated: 2016/08/21 02:39:37 by ajubert          ###   ########.fr        #
+#    Updated: 2016/08/22 06:18:28 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,8 @@ SRC_C=	main.c\
 		position_to_circle_haut.c\
 		position_to_circle_d_hd_bg.c\
 		position_to_circle_d_hg_bd.c\
-		verif_valid_circle.c
+		verif_valid_circle.c\
+		move_to_random.c
 
 SRC_O=		$(SRC_C:.c=.o)
 

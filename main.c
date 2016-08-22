@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/25 14:52:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/21 04:46:54 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/22 06:21:35 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ int		main(void)
 			if (result == 0)
 			{
 				move_to_en(&e);
+					//if (move_to_random(&e) == 0)
+					//	return (0);
 			}
 		}
 		if (result == 2)
@@ -73,8 +75,16 @@ int		main(void)
 		}
 		if (e.strat == 1)
 			circle_en(&e);
+			//	if (move_to_en(&e) == 0)
+			//		if (move_to_random(&e) == 0)
+			//			return (0);
 		if (e.strat == 2)
 			move_to_en(&e);
+		//		if (move_to_random(&e) == 0)
+		//			return (0);
+		//if (e.strat == 3)
+		//	if (move_to_random(&e) == 0)
+		//		return (0);
 		ft_printf("%d %d\n", e.pos_piece.y, e.pos_piece.x);
 		free_piece(e.piece, e.size_piece.y);
 //		ft_free_list_coor(e.coor_piece);

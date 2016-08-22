@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:51:02 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/21 02:51:56 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/22 06:17:57 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,8 @@ typedef struct		s_e
 	int				en_last_bloc;
 	int				dir_haut;
 	int				dir_bas;
+	int				cote;
+	int				diagonale;
 }					t_e;
 
 t_list_str			*ft_create_racine_str(void);
@@ -158,5 +160,6 @@ void				position_to_circle_droite(t_e *e);
 void				position_to_circle_d_hg_bd(t_e *e);
 void				position_to_circle_d_hd_bg(t_e *e);
 void				verif_valid_circle(t_e *e, t_pos var);
+int					move_to_random(t_e *e);
 
 #endif
