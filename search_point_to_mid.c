@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 00:48:03 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 03:22:15 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 12:03:45 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int		search_first_point(t_e *e)
 	t_coor_piece *tmp;
 
 	j = 1;
-		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur\n");
+//		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur\n");
 	tmp = e->coor_me;
 	while (tmp && tmp->valid == 0)
 		tmp = tmp->next;
@@ -28,7 +28,7 @@ static int		search_first_point(t_e *e)
 		return (0);
 	e->ind = tmp;
 	dist_min = calc_dist_to_center(e, tmp->pos);
-	ft_printf_fd(e->fd, "e->nb_me : %d\n", e->nb_me);
+//	ft_printf_fd(e->fd, "e->nb_me : %d\n", e->nb_me);
 	while (j < e->nb_me)
 	{
 		tmp = tmp->next;
@@ -123,10 +123,10 @@ int				search_point_to_mid(t_e *e, int dist)
 {
 	if (dist == -1)
 	{
-		ft_printf_fd(e->fd, "pendant search_point_to_mid avant search_first_point\n");
+//		ft_printf_fd(e->fd, "pendant search_point_to_mid avant search_first_point\n");
 		if (search_first_point(e))
 			return (1);
-		ft_printf_fd(e->fd, "pendant search_point_to_mid apres search_first_point\n");
+//		ft_printf_fd(e->fd, "pendant search_point_to_mid apres search_first_point\n");
 		return (0);
 	}
 	if (search_other_point_egal(e, dist))

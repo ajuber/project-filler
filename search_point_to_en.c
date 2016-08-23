@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 22:23:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 03:28:03 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 12:07:21 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@ static int			search_first_point(t_e *e)
 	t_coor_piece *tmp;
 
 	j = 1;
-		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur\n");
+//		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur\n");
 	tmp = e->coor_me;
-		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur 2\n");
+//		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur 2\n");
 	while (tmp && tmp->valid == 0)
 		tmp = tmp->next;
 	if (tmp == NULL)
 		return (0);
 	e->ind = tmp;
-		ft_printf_fd(e->fd, "pendant search_first_point avant calc_dist_to_center\n");
+//		ft_printf_fd(e->fd, "pendant search_first_point avant calc_dist_to_center\n");
 	dist_min = calc_dist_to_en(e, tmp->pos);
 	while (j < e->nb_me)
 	{
 		tmp = tmp->next;
-		ft_printf_fd(e->fd, "pendant search_first_point dqns while\n");
+//		ft_printf_fd(e->fd, "pendant search_first_point dqns while\n");
 		while (tmp && tmp->valid == 0)
 			tmp = tmp->next;
 		dist_tmp = calc_dist_to_en(e, tmp->pos);
@@ -44,7 +44,7 @@ static int			search_first_point(t_e *e)
 		}
 		j++;
 	}
-		ft_printf_fd(e->fd, "pendant search_first_point avant position\n");
+//		ft_printf_fd(e->fd, "pendant search_first_point avant position\n");
 	e->me_pos.y = e->ind->pos.y;
 	e->me_pos.x = e->ind->pos.x;
 	return (1);
@@ -126,10 +126,10 @@ int				search_point_to_en(t_e *e, int dist)
 {
 	if (dist == -1)
 	{
-		ft_printf_fd(e->fd, "pendant search_point_to_mid avant search_first_point\n");
+//		ft_printf_fd(e->fd, "pendant search_point_to_mid avant search_first_point\n");
 		if (search_first_point(e))
 			return (1);
-		ft_printf_fd(e->fd, "pendant search_point_to_mid apres search_first_point\n");
+//		ft_printf_fd(e->fd, "pendant search_point_to_mid apres search_first_point\n");
 		return (0);
 	}
 	if (search_other_point_egal(e, dist))

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 01:58:49 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/21 04:45:18 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 12:06:27 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ int		move_to_en(t_e *e)
 				{
 					print_coord(e);
 					mem_coord_me(e);
-					print_coord_me(e);
-					print_coord_en(e);
+				//	print_coord_me(e);
+				//	print_coord_en(e);
 					return (1);
 				}
 			}

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/25 14:52:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 07:57:06 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 11:58:07 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(void)
 //		ft_printf("%d %d", 8, 2);
 //	if (!(first_map(&e)))
 //		return (0);
-	ft_printf_fd(e.fd2, "valid_circle1 : %d       valid_circle2 : %d\n", e.valid_circle1, e.valid_circle2);
+//	ft_printf_fd(e.fd2, "valid_circle1 : %d       valid_circle2 : %d\n", e.valid_circle1, e.valid_circle2);
 	search_char(&e);
 	first_map(&e);
 	if (e.error_map)
@@ -37,10 +37,10 @@ int		main(void)
 		return (0);
 	}
 	get_piece(&e);
-	ft_printf_fd(e.fd, "avant recup_coord_piece\n");
+//	ft_printf_fd(e.fd, "avant recup_coord_piece\n");
 	recup_coord_piece(&e);
 	first_pos(&e);
-	ft_printf_fd(e.fd, "avant move_to_mid\n");
+//	ft_printf_fd(e.fd, "avant move_to_mid\n");
 //	if (e.strat == 0)
 		result = move_to_mid(&e);
 	if (result == 0)
@@ -52,11 +52,11 @@ int		main(void)
 	if (e.strat == 1)
 		move_to_en(&e);
 	//ft_printf("%d %d\n", , );
-	ft_printf_fd(e.fd, "avant printf\n");
+//	ft_printf_fd(e.fd, "avant printf\n");
 		ft_printf("%d %d\n", e.pos_piece.y, e.pos_piece.x);
-	ft_printf_fd(e.fd, "avant free_piece\n");
+//	ft_printf_fd(e.fd, "avant free_piece\n");
 	free_piece(e.piece, e.size_piece.y);
-	ft_printf_fd(e.fd, "avant ft_free_list_coor\n");
+//	ft_printf_fd(e.fd, "avant ft_free_list_coor\n");
 //	ft_free_list_coor(e.coor_piece);
 	e.coor_piece = NULL;
 	while (get_map(&e))

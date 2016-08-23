@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:28:10 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 03:25:24 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 12:10:58 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,10 +121,10 @@ int				search_point_to(t_e *e, int dist, t_pos cir)
 {
 	if (dist == -1)
 	{
-		ft_printf_fd(e->fd, "pendant search_point_to_mid avant search_first_point\n");
+//		ft_printf_fd(e->fd, "pendant search_point_to_mid avant search_first_point\n");
 		if (search_first_point(e, cir))
 			return (1);
-		ft_printf_fd(e->fd, "pendant search_point_to_mid apres search_first_point\n");
+//		ft_printf_fd(e->fd, "pendant search_point_to_mid apres search_first_point\n");
 		return (0);
 	}
 	if (search_other_point_egal(e, dist, cir))

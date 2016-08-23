@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 02:23:46 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/22 06:07:10 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 12:09:38 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		circle_en(t_e *e)
 //	else
 //		verif_position_to_circle(e);
 //	c++;
-	ft_printf_fd(e->fd2, "pos_circle1.y : %d      pos_circle1.x : %d\npos_circle2.y : %d      pos_circle2.x : %d\n", e->pos_circle1.y, e->pos_circle1.x, e->pos_circle2.y, e->pos_circle2.x);
+//	ft_printf_fd(e->fd2, "pos_circle1.y : %d      pos_circle1.x : %d\npos_circle2.y : %d      pos_circle2.x : %d\n", e->pos_circle1.y, e->pos_circle1.x, e->pos_circle2.y, e->pos_circle2.x);
 	tmp = e->coor_en;
 	while (tmp->next)
 		tmp = tmp->next;
