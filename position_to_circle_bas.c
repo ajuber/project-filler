@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/20 00:32:28 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 09:52:20 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 11:32:56 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void	position_to_circle_bas(t_e *e)
 {
-	if (e->en_bloc == 4)
+	int static test = 1;
+
+	if (e->en_bloc == 4 && test)
+	{
 		ft_swap_int(&e->valid_circle1, &e->valid_circle2);
+		test = 0;
+	}
 	e->inc1 = -1;
 	e->inc2 = -1;
 	e->pos_circle1.y = e->en_hg.pos.y + e->inc1;

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 05:44:43 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 09:42:32 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 11:17:54 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	position_to_circle(t_e *e)
 		else
 			e->pos_circle2.y = e->en_bd.y + 1;
 	}*/
-	if (e->en_bloc == e->en_last_bloc)
+	if (e->en_bloc == e->en_last_bloc && e->cote == 0 && e->diagonale == 0)
 	{
 	if (e->en_bloc == 4)
 	{
