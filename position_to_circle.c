@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 05:44:43 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 11:17:54 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 11:53:53 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,16 +149,16 @@ void	position_to_circle(t_e *e)
 		}*/
 	}
 	}
-	if ((e->en_bloc == 1 && e->en_last_bloc == 2) || (e->en_bloc == 2 && e->en_last_bloc == 1))
+	if (((e->en_bloc == 1 && e->en_last_bloc == 2) || (e->en_bloc == 2 && e->en_last_bloc == 1) || e->cote == 1) && e->diagonale == 0)
 		position_to_circle_haut(e);
-	if ((e->en_bloc == 1 && e->en_last_bloc == 3) || (e->en_bloc == 3 && e->en_last_bloc == 1))
+	if (((e->en_bloc == 1 && e->en_last_bloc == 3) || (e->en_bloc == 3 && e->en_last_bloc == 1) || e->cote == 4) && e->diagonale == 0)
 		position_to_circle_gauche(e);
-	if ((e->en_bloc == 2 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 2))
+	if (((e->en_bloc == 2 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 2) || e->cote == 2) && e->diagonale == 0)
 		position_to_circle_droite(e);
-	if ((e->en_bloc == 3 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 3))
+	if (((e->en_bloc == 3 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 3) || e->cote == 3) && e->diagonale == 0)
 		position_to_circle_bas(e);
-	if ((e->en_bloc == 1 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 1))
+	if ((e->en_bloc == 1 && e->en_last_bloc == 4) || (e->en_bloc == 4 && e->en_last_bloc == 1) || e->diagonale == 1)
 		position_to_circle_d_hg_bd(e);
-	if ((e->en_bloc == 2 && e->en_last_bloc == 3) || (e->en_bloc == 3 && e->en_last_bloc == 2))
+	if ((e->en_bloc == 2 && e->en_last_bloc == 3) || (e->en_bloc == 3 && e->en_last_bloc == 2) || e->diagonale == 2)
 		position_to_circle_d_hd_bg(e);
 }
