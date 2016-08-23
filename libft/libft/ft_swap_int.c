@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   position_to_circle_bas.c                           :+:      :+:    :+:   */
+/*   ft_swap_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/20 00:32:28 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 09:52:20 by ajubert          ###   ########.fr       */
+/*   Created: 2016/08/23 09:27:18 by ajubert           #+#    #+#             */
+/*   Updated: 2016/08/23 09:28:22 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "filler.h"
+#include "libft.h"
 
-void	position_to_circle_bas(t_e *e)
+void	ft_swap_int(int *a, int *b)
 {
-	if (e->en_bloc == 4)
-		ft_swap_int(&e->valid_circle1, &e->valid_circle2);
-	e->inc1 = -1;
-	e->inc2 = -1;
-	e->pos_circle1.y = e->en_hg.pos.y + e->inc1;
-	e->pos_circle2.y = e->en_hd.pos.y + e->inc2;
-	e->pos_circle1.x = 0;
-	e->pos_circle2.x = e->size_map.x - 1;
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }

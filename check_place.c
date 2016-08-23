@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/26 21:23:35 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/17 00:40:59 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 10:45:16 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,14 @@ static int		check_no_point(t_e *e, t_coor_piece *repere, t_coor_piece *tmp)
 	return (0);
 }
 
+static int		check_me(t_e *e)
+{
+	if (e->map[e->me_pos.y][e->me_pos.x] == e->me)
+		return (0);
+	return (1);
+}
+
+
 int				check_place(t_e *e, int j)
 {
 	int k;
@@ -59,6 +67,8 @@ int				check_place(t_e *e, int j)
 	tmp = e->coor_piece;
 	while (k < e->nb_point)
 	{
+		if (tmp == e->repere && (check_me(e)))
+			return (0);
 		if (tmp != e->repere && (check_no_place(e, e->repere, tmp) || check_no_point(e, e->repere, tmp)))
 			return (0);
 		k++;

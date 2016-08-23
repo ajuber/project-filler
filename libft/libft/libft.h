@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 14:39:07 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/11 19:26:01 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 09:29:00 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,6 @@ long				ft_atoi_long(const char *str);
 int					ft_printf(const char *format, ...);
 void				ft_putstr_size_fd(int fd, char *str, size_t size);
 int					ft_printf_fd(int fd, const char *format, ...);
+void				ft_swap_int(int *a, int *b);
 
 #endif

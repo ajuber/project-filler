@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/14 16:33:50 by ajubert           #+#    #+#              #
-#    Updated: 2016/08/11 19:27:38 by ajubert          ###   ########.fr        #
+#    Updated: 2016/08/23 09:34:18 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,8 @@ FT_COMPILED =	ft_memset.o\
 				ft_strdup_free.o\
 				ft_strjoin_free.o\
 				ft_atoi_long.o\
-				ft_putstr_size_fd.o
+				ft_putstr_size_fd.o\
+				ft_swap_int.o
 
 PRINTF_CMP = ft_printf.o\
 			ft_printf_p.o\
