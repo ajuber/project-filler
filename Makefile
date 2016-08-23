@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/05 14:28:27 by ajubert           #+#    #+#              #
-#    Updated: 2016/08/22 06:18:28 by ajubert          ###   ########.fr        #
+#    Updated: 2016/08/23 07:57:58 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ COMPILER=	gcc
 FLAG=		-Wall -Werror -Wextra
 LIB=		libft.a
 INCLUDES=	-I ./libft/includes/
+vpath %.c
 
 SRC_C=	main.c\
 		list.c\
@@ -63,7 +64,10 @@ SRC_C=	main.c\
 		position_to_circle_d_hd_bg.c\
 		position_to_circle_d_hg_bd.c\
 		verif_valid_circle.c\
-		move_to_random.c
+		move_to_random.c\
+		test_valid_point_me.c\
+		free_maillon.c\
+		ft_error_map.c
 
 SRC_O=		$(SRC_C:.c=.o)
 
@@ -74,7 +78,7 @@ $(NAME): $(SRC_O)
 	@echo "\033[32m=======FILLER HAS BEEN CREATED=======\033[0m"
 
 %.o: %.c
-	$(COMPILER) $(FLAG) -c $<
+	$(COMPILER) $(FLAG) -c $(subst __,/,$<) -o $@
 
 libft.a:
 	@echo "\033[32m==================================="

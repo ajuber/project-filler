@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 15:32:08 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/15 05:12:13 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 01:23:26 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ t_coor_piece		*new_list_coor(char c, int y, int x)
 		return (NULL);
 	new->next = NULL;
 	new->c = c;
+	new->valid = 1;
 	new->pos.x = x;
 	new->pos.y = y;
 	return (new);

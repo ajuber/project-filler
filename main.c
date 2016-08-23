@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/25 14:52:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/22 06:21:35 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 07:57:06 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ int		main(void)
 	ft_printf_fd(e.fd2, "valid_circle1 : %d       valid_circle2 : %d\n", e.valid_circle1, e.valid_circle2);
 	search_char(&e);
 	first_map(&e);
+	if (e.error_map)
+	{
+		ft_printf("0 0\n");
+		return (0);
+	}
 	get_piece(&e);
 	ft_printf_fd(e.fd, "avant recup_coord_piece\n");
 	recup_coord_piece(&e);
@@ -56,6 +61,7 @@ int		main(void)
 	e.coor_piece = NULL;
 	while (get_map(&e))
 	{
+		test_valid_point_me(&e);
 		get_piece(&e);
 		recup_coord_piece(&e);
 		if (e.strat == 0)
@@ -63,9 +69,9 @@ int		main(void)
 			result = move_to_mid(&e);
 			if (result == 0)
 			{
-				move_to_en(&e);
-					//if (move_to_random(&e) == 0)
-					//	return (0);
+				//if (move_to_en(&e) == 0)
+					if (move_to_random(&e) == 0)
+						return (0);
 			}
 		}
 		if (result == 2)
@@ -74,17 +80,21 @@ int		main(void)
 			e.strat = 1;
 		}
 		if (e.strat == 1)
-			circle_en(&e);
-			//	if (move_to_en(&e) == 0)
-			//		if (move_to_random(&e) == 0)
-			//			return (0);
+			if (circle_en(&e) == 0)
+			{
+		//		if (move_to_en(&e) == 0)
+					if (move_to_random(&e) == 0)
+						return (0);
+			}
 		if (e.strat == 2)
-			move_to_en(&e);
-		//		if (move_to_random(&e) == 0)
-		//			return (0);
-		//if (e.strat == 3)
-		//	if (move_to_random(&e) == 0)
-		//		return (0);
+		{
+		//	if (move_to_en(&e))
+				if (move_to_random(&e) == 0)
+					return (0);
+		}
+		if (e.strat == 3)
+			if (move_to_random(&e) == 0)
+				return (0);
 		ft_printf("%d %d\n", e.pos_piece.y, e.pos_piece.x);
 		free_piece(e.piece, e.size_piece.y);
 //		ft_free_list_coor(e.coor_piece);

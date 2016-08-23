@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/26 16:09:19 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/18 05:20:30 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 00:18:01 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	first_pos(t_e *e)
 					init_bloc_en(e, e->i, j);
 				mem_bloc_en(e, e->i, j);
 				e->coor_en = push_back_coor(e->coor_en, e->en, e->i, j);
+				e->nb_en++;
+				e->nb_en_new++;
 			}
 			j++;
 		}

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:13:57 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/19 01:54:25 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 06:56:07 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int		move_to_circle(t_e *e, t_pos cir)
 	while (e->i < e->nb_me)
 	{
 		j = 0;
+		ft_printf_fd(e->fd, "%d\n", e->i);
 		if (!(search_point_to(e, e->dist_center_me, cir)))
 			return (0);
 		e->dist_center_me = calc_dist_to(cir, e->me_pos);
@@ -40,7 +41,9 @@ int		move_to_circle(t_e *e, t_pos cir)
 			}
 			j++;
 		}
+		ft_printf_fd(e->fd, "sss\n");
 		tmp = tmp->next;
+		ft_printf_fd(e->fd, "sss\n");
 		e->i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/26 15:56:00 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/14 23:46:11 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 08:39:07 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int		first_map(t_e *e)
 				j++;
 				if (j == e->size_map.y)
 				{
+					ft_error_map(e);
 					free_line(e->line);
 					return (1);
 				}

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/14 21:52:51 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/17 03:03:20 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/23 06:43:50 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int		move_to_mid(t_e *e)
 	{
 		j = 0;
 		ft_printf_fd(e->fd, "pendant move_to_mid avant search_point_to_mid\n");
+		ft_printf_fd(e->fd, "%d\n",e->i);
 		if (!(search_point_to_mid(e, e->dist_center_me)))
 			return (0);
 		ft_printf_fd(e->fd, "pendant move_to_mid apres search_point_to_mid\n");
@@ -49,7 +50,9 @@ int		move_to_mid(t_e *e)
 			}
 			j++;
 		}
+		ft_printf_fd(e->fd, "ssss\n");
 		tmp = tmp->next;
+		ft_printf_fd(e->fd, "ssss\n");
 		e->i++;
 	}
 	return (0);
