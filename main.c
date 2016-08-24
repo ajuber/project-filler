@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/25 14:52:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 09:03:19 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 10:44:04 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static int		calc(t_e *e)
 		return (0);
 	ft_printf("%d %d\n", e->pos_piece.y, e->pos_piece.x);
 	free_piece(e->piece, e->size_piece.y);
-	e->coor_piece = NULL;
+	ft_free_list_coor(&e->coor_piece);
 	return (1);
 }
 

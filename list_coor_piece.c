@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/11 15:32:08 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 08:57:14 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 10:44:34 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,20 @@ t_coor_piece		*push_back_coor(t_coor_piece *begin_list,
 	return (begin_list);
 }
 
-void				ft_free_list_coor(t_coor_piece *begin_list)
+void				ft_free_list_coor(t_coor_piece **begin_list)
 {
 	t_coor_piece *tmp;
 	t_coor_piece *tmp1;
 
-	tmp1 = begin_list->next;
+	tmp1 = begin_list[0]->next;
 	while (tmp1->next != NULL)
 	{
 		tmp = tmp1;
 		tmp1 = tmp1->next;
 		ft_memdel((void **)&tmp);
 	}
-	ft_memdel((void **)&begin_list);
+	//ft_memdel((void **)&begin_list);
+	free(begin_list[0]);
 	tmp1 = NULL;
-	begin_list = NULL;
+	begin_list[0] = NULL;
 }

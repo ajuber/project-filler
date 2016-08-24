@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:51:02 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 08:44:37 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 11:03:31 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,8 +150,8 @@ int					what_strat(t_e *e);
 int					calc_dist_circle(t_e *e);
 void				search_char(t_e *e);
 void				free_line(char *line);
-void				free_map(char **map, int size);
-void				free_piece(char **piece, int size);
+void				free_map(char **map, int y);
+void				free_piece(char **piece, int y);
 int					move_to_mid(t_e *e);
 int					first_map(t_e *e);
 void				first_pos(t_e *e);
@@ -161,7 +161,7 @@ int					check_place(t_e *e, int j);
 t_pos				ft_pos_in_map(t_pos repere_map, t_pos repere, t_pos var);
 int					new_dist_to_center(t_e *e);
 void				print_coord(t_e *e);
-void				ft_free_list_coor(t_coor_piece *begin_list);
+void				ft_free_list_coor(t_coor_piece **begin_list);
 void				mem_coord_me(t_e *e);
 void				print_coord_me(t_e *e);
 int					move_to_en(t_e *e);
