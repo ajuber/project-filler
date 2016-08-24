@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/20 00:32:28 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 04:06:27 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 09:38:21 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	position_to_circle_bas(t_e *e)
 {
-	int static test = 1;
+	static int test = 1;
 
 	e->cote = 3;
 	if (e->en_bloc == 4 && test)

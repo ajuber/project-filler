@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 01:58:49 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 12:06:27 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 09:10:12 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,37 +14,29 @@
 
 int		move_to_en(t_e *e)
 {
-	t_coor_piece *tmp;
+	t_coor_piece	*tmp;
 	int				j;
 
 	e->dist_me_en = -1;
-	e->i = 0;
+	e->i = -1;
 	tmp = e->coor_me;
-	while (e->i < e->nb_me)
+	while (++e->i < e->nb_me)
 	{
 		j = 0;
 		if (!(search_point_to_en(e, e->dist_me_en)))
 			return (0);
 		e->dist_me_en = calc_dist_to_en(e, e->me_pos);
-		if (e->dist_me_en < 3)
-			return (2);
 		while (j < e->nb_point)
 		{
-			if (check_place(e, j))
+			if (check_place(e, j) && (new_dist_to_en(e)))
 			{
-				if (new_dist_to_en(e))
-				{
-					print_coord(e);
-					mem_coord_me(e);
-				//	print_coord_me(e);
-				//	print_coord_en(e);
-					return (1);
-				}
+				print_coord(e);
+				mem_coord_me(e);
+				return (1);
 			}
 			j++;
 		}
 		tmp = tmp->next;
-		e->i++;
 	}
 	return (0);
 }

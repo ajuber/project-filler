@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/05 14:28:27 by ajubert           #+#    #+#              #
-#    Updated: 2016/08/24 03:44:10 by ajubert          ###   ########.fr        #
+#    Updated: 2016/08/24 09:52:06 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,6 @@ SRC_C=	main.c\
 		search_point_to_mid.c\
 		ft_pos_in_map.c\
 		mem_coord_me.c\
-		print_coord_me.c\
 		move_to_en.c\
 		calc_dist_to_en.c\
 		new_coord.c\
@@ -71,7 +70,8 @@ SRC_C=	main.c\
 		init_card.c\
 		init_pos_card.c\
 		new_card.c\
-		ft_init_pos.c
+		ft_init_pos.c\
+		fin_filler.c
 
 SRC_O=		$(SRC_C:.c=.o)
 

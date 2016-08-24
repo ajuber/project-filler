@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/19 01:48:13 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/19 01:49:25 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 07:37:40 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int		calc_dist_to(t_pos var, t_pos var1)
 {
-	t_pos diff;
-	int distance;
+	t_pos	diff;
+	int		distance;
 
 	diff.x = var1.x - var.x;
 	if (diff.x < 0)
@@ -24,7 +24,5 @@ int		calc_dist_to(t_pos var, t_pos var1)
 	if (diff.y < 0)
 		diff.y *= -1;
 	distance = diff.x + diff.y;
-//	if (0 > (distance = ((var.y + var.x) - (e->center.y + e->center.x))))
-//		distance *= -1;
 	return (distance);
 }

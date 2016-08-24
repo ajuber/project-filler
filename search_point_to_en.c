@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/17 22:23:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 12:07:21 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 10:13:05 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 static int			search_first_point(t_e *e)
 {
-	int dist_tmp;
-	int dist_min;
-	int			j;
-	t_coor_piece *tmp;
+	int				dist_tmp;
+	int				dist_min;
+	int				j;
+	t_coor_piece	*tmp;
 
 	j = 1;
-//		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur\n");
 	tmp = e->coor_me;
-//		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur 2\n");
 	while (tmp && tmp->valid == 0)
 		tmp = tmp->next;
 	if (tmp == NULL)
 		return (0);
 	e->ind = tmp;
-//		ft_printf_fd(e->fd, "pendant search_first_point avant calc_dist_to_center\n");
 	dist_min = calc_dist_to_en(e, tmp->pos);
 	while (j < e->nb_me)
 	{
 		tmp = tmp->next;
-//		ft_printf_fd(e->fd, "pendant search_first_point dqns while\n");
 		while (tmp && tmp->valid == 0)
 			tmp = tmp->next;
 		dist_tmp = calc_dist_to_en(e, tmp->pos);
@@ -44,9 +40,7 @@ static int			search_first_point(t_e *e)
 		}
 		j++;
 	}
-//		ft_printf_fd(e->fd, "pendant search_first_point avant position\n");
-	e->me_pos.y = e->ind->pos.y;
-	e->me_pos.x = e->ind->pos.x;
+	e->me_pos = ft_init_pos(e->ind->pos.y, e->ind->pos.x);
 	return (1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:51:02 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 04:35:54 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 08:44:37 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,10 +139,10 @@ t_coor_piece		*push_back_coor(t_coor_piece *list, char c, int y, int x);
 int					count_list_str(t_list_str *list);
 int					get_map(t_e *e);
 int					get_piece(t_e *e);
-void				recup_size_tab(t_e *e, char *line);
-void				recup_tab(t_e *e, int j, char *line);
-void				recup_piece(t_e *e, int j, char *line);
-void				recup_size_piece(t_e *e, char *line);
+int					recup_size_tab(t_e *e, char *line);
+int					recup_tab(t_e *e, int j, char *line);
+int					recup_piece(t_e *e, int j, char *line);
+int					recup_size_piece(t_e *e, char *line);
 void				calc_dist(t_e *e);
 int					calc_dist_to_center(t_e *e, t_pos var);
 int					what_horizon(int var, int center);
@@ -193,5 +193,7 @@ t_pos				ft_init_pos(int y, int x);
 void				init_card(t_e *e);
 t_card				init_pos_card(int y, int x);
 t_card				new_card(t_card card, int y, int x);
+void				new_order(t_e *e);
+void				fin_filler(t_e *e);
 
 #endif

@@ -6,17 +6,27 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 07:31:04 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 12:05:24 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 09:02:00 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	mem_coord_me(t_e *e)
+static void		next(t_e *e, t_coor_piece **tmp)
 {
-	int j;
-	t_pos pos;
-	t_coor_piece *tmp;
+	tmp[0] = e->coor_me;
+	while (tmp[0]->next)
+	{
+		verif_valid_circle(e, tmp[0]->pos);
+		tmp[0] = tmp[0]->next;
+	}
+}
+
+void			mem_coord_me(t_e *e)
+{
+	int				j;
+	t_pos			pos;
+	t_coor_piece	*tmp;
 
 	tmp = e->coor_piece;
 	j = 0;
@@ -31,15 +41,6 @@ void	mem_coord_me(t_e *e)
 		j++;
 		tmp = tmp->next;
 	}
-//	ft_printf_fd(e->fd2, "strat : %d\n", e->strat);
 	if (e->strat == 1)
-	{
-		tmp = e->coor_me;
-		while (tmp->next)
-		{
-			verif_valid_circle(e, tmp->pos);
-			tmp = tmp->next;
-		}
-//		ft_printf_fd(e->fd2, "strat : %d\nvalid_circle1 : %d      valid_circle2 : %d\n", e->strat, e->valid_circle1, e->valid_circle2);
-	}
+		next(e, &tmp);
 }

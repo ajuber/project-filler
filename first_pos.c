@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/26 16:09:19 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 00:18:01 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 07:47:58 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ void	first_pos(t_e *e)
 	e->i = 0;
 	while (e->i < e->size_map.y)
 	{
-		j = 0;
-		while (j < e->size_map.x)
+		j = -1;
+		while (++j < e->size_map.x)
 		{
 			if (e->map[e->i][j] == e->me)
 			{
@@ -35,7 +35,6 @@ void	first_pos(t_e *e)
 				e->nb_en++;
 				e->nb_en_new++;
 			}
-			j++;
 		}
 		e->i++;
 	}
