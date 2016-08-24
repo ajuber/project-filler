@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/05 14:28:27 by ajubert           #+#    #+#              #
-#    Updated: 2016/08/23 07:57:58 by ajubert          ###   ########.fr        #
+#    Updated: 2016/08/24 03:44:10 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,11 @@ SRC_C=	main.c\
 		move_to_random.c\
 		test_valid_point_me.c\
 		free_maillon.c\
-		ft_error_map.c
+		ft_error_map.c\
+		init_card.c\
+		init_pos_card.c\
+		new_card.c\
+		ft_init_pos.c
 
 SRC_O=		$(SRC_C:.c=.o)
 

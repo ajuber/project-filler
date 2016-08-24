@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   position_to_circle_gauche.c                        :+:      :+:    :+:   */
+/*   new_card.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/08/20 00:33:56 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 04:06:42 by ajubert          ###   ########.fr       */
+/*   Created: 2016/08/24 01:45:44 by ajubert           #+#    #+#             */
+/*   Updated: 2016/08/24 01:53:32 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	position_to_circle_gauche(t_e *e)
+t_card		new_card(t_card card, int y, int x)
 {
-	e->cote = 4;
-	e->inc1 = 1;
-	e->inc2 = 1;
-	e->pos_circle1.x = e->hg.d.x + e->inc1;
-	e->pos_circle2.x = e->bg.d.x + e->inc2;
-	e->pos_circle1.y = 0;
-	e->pos_circle2.y = e->size_map.y - 1;
+	if (card.h.y == -1)
+		card = init_pos_card(y, x);
+	else
+	{
+		if (y < card.h.y)
+			card.h = ft_init_pos(y, x);
+		if (y > card.b.y)
+			card.b = ft_init_pos(y, x);
+		if (x < card.g.x)
+			card.g = ft_init_pos(y, x);
+		if (x > card.d.x)
+			card.d = ft_init_pos(y, x);
+	}
+	return (card);
 }

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:51:02 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 09:30:14 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 04:35:54 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,27 @@ typedef struct		s_bloc_en
 	int				nb;
 }					t_bloc_en;
 
+typedef struct		s_card
+{
+	t_pos			h;
+	t_pos			d;
+	t_pos			b;
+	t_pos			g;
+}					t_card;
+
 typedef struct		s_let
 {
 	char			low;
 	char			up;
 }					t_let;
+
+typedef struct		s_order
+{
+	int				un;
+	int				deux;
+	int				trois;
+	int				quatre;
+}					t_order;
 
 typedef struct		s_e
 {
@@ -110,6 +126,11 @@ typedef struct		s_e
 	int				cote;
 	int				diagonale;
 	int				error_map;
+	t_card			hg;
+	t_card			hd;
+	t_card			bg;
+	t_card			bd;
+	t_order			order;
 }					t_e;
 
 t_list_str			*ft_create_racine_str(void);
@@ -168,5 +189,9 @@ int					move_to_random(t_e *e);
 void				test_valid_point_me(t_e *e);
 void				free_maillon(t_coor_piece *p);
 void				ft_error_map(t_e *e);
+t_pos				ft_init_pos(int y, int x);
+void				init_card(t_e *e);
+t_card				init_pos_card(int y, int x);
+t_card				new_card(t_card card, int y, int x);
 
 #endif

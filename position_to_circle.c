@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/18 05:44:43 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 11:53:53 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/24 02:14:55 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	position_to_circle(t_e *e)
 	if (e->en_bloc == 4)
 	{
 		e->inc1 = -1;
-		e->pos_circle1.y = e->en_haut.y + e->inc1;
+		e->pos_circle1.y = e->bd.h.y + e->inc1;
 		e->pos_circle1.x = e->size_map.x - 1;
 	/*	if (e->pos_circle1.y < 0)
 		{
@@ -79,7 +79,7 @@ void	position_to_circle(t_e *e)
 			e->pos_circle1.x = e->en_gauche.x + e->inc1;
 		}*/
 		e->inc2 = -1;
-		e->pos_circle2.x = e->en_gauche.x + e->inc2;
+		e->pos_circle2.x = e->bd.g.x + e->inc2;
 		e->pos_circle2.y = e->size_map.y - 1;
 	/*	if (e->pos_circle2.x < 0)
 		{
@@ -91,7 +91,7 @@ void	position_to_circle(t_e *e)
 	{
 		e->inc2 = 1;
 		e->pos_circle2.y = e->size_map.y - 1;;
-		e->pos_circle2.x = e->en_droit.x + e->inc2;
+		e->pos_circle2.x = e->bg.d.x + e->inc2;
 		/*if (e->pos_circle2.x >= e->size_map.x)
 		{
 			e->inc2 = -1;
@@ -100,7 +100,7 @@ void	position_to_circle(t_e *e)
 		}*/
 		e->inc1 = -1;
 		e->pos_circle1.x = 0;
-		e->pos_circle1.y = e->en_haut.y + e->inc1;
+		e->pos_circle1.y = e->bg.h.y + e->inc1;
 		/*if (e->pos_circle1.y < 0)
 		{
 			e->inc1 = 1;
@@ -112,7 +112,7 @@ void	position_to_circle(t_e *e)
 	{
 		e->inc1 = -1;
 		e->pos_circle1.y = 0;
-		e->pos_circle1.x = e->en_gauche.x + e->inc1;
+		e->pos_circle1.x = e->hd.g.x + e->inc1;
 		/*if (e->pos_circle1.x < 0)
 		{
 			e->inc1 = 1;
@@ -121,7 +121,7 @@ void	position_to_circle(t_e *e)
 		}*/
 		e->inc2 = 1;
 		e->pos_circle2.x = e->size_map.x - 1;
-		e->pos_circle2.y = e->en_bas.y + e->inc2;
+		e->pos_circle2.y = e->hd.b.y + e->inc2;
 		/*if (e->pos_circle2.y >= e->size_map.y)
 		{
 			e->inc2 = -1;
@@ -132,7 +132,7 @@ void	position_to_circle(t_e *e)
 	if (e->en_bloc == 1)
 	{
 		e->inc2 = 1;
-		e->pos_circle2.y = e->en_bas.y + e->inc2;
+		e->pos_circle2.y = e->hg.b.y + e->inc2;
 		e->pos_circle2.x = 0;
 	/*	if (e->pos_circle2.y >= e->size_map.y)
 		{
@@ -140,7 +140,7 @@ void	position_to_circle(t_e *e)
 			e->pos_circle2.x = e->en_droit.x + e->inc2;
 		}*/
 		e->inc1 = 1;
-		e->pos_circle1.x = e->en_droit.x + e->inc1;
+		e->pos_circle1.x = e->hg.d.x + e->inc1;
 		e->pos_circle1.y = 0;
 	/*	if (e->pos_circle1.x >= e->size_map.x)
 		{
