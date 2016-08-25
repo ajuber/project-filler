@@ -25,8 +25,7 @@ int		extractbuffer(char **str1, int fd)
 		return (0);
 	str[strsize] = '\0';
 	tmp = &str1[0][0];
-	str1[0] = ft_strjoin(tmp, str);
-	free(tmp);
+	str1[0] = ft_strjoin_free(str1[0], tmp, str);
 	strsize = ft_strlen(str1[0]);
 	return (strsize);
 }
@@ -89,21 +88,25 @@ int		calc_get_next_line(char **str, int fd, char **line, int *fd1)
 
 int		get_next_line(int const fd, char **line)
 {
-	static char		**str = 0;
+	static char		*str = 0;
 	static int		fd1 = -1;
+	static int		count = 0;
 	int				test;
 
+	count++;
+	if (fd == fd1 && count > 0 && line == NULL)
+	{
+		free(str);
+	}
 	if (fd < 0 || line == NULL || BUFF_SIZE <= 0)
 		return (-1);
 	line[0] = ft_strdup("\0");
 	if (fd1 != fd)
 	{
-		if (!(str = (char **)malloc(sizeof(char *) * 1)))
-			return (-1);
-		str[0] = ft_strdup("\0");
+		str = ft_strdup("\0");
 	}
-	test = calc_get_next_line(str, fd, line, &fd1);
-	get_previous_str(str);
+	test = calc_get_next_line(&str, fd, line, &fd1);
+	get_previous_str(&str);
 	if (test == 1)
 		return (1);
 	if (test == 0)

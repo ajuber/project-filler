@@ -14,6 +14,8 @@
 
 void	fin_filler(t_e *e)
 {
+	get_next_line(0, NULL);
+	free_line(&e->line);
 	ft_free_list_coor(&e->coor_piece);
 	ft_free_list_coor(&e->coor_me);
 	ft_free_list_coor(&e->coor_en);

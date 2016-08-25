@@ -14,14 +14,14 @@
 
 void	ft_error_map(t_e *e)
 {
-	int count_en;
-	int count_me;
+//	int count_en;
+//	int count_me;
 	int y;
 	int x;
 
 	y = 0;
-	count_en = 0;
-	count_me = 0;
+//	count_en = 0;
+//	count_me = 0;
 	while (y < e->size_map.y)
 	{
 		x = 0;

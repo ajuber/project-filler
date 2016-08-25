@@ -50,12 +50,16 @@ void				ft_free_list_coor(t_coor_piece **begin_list)
 	t_coor_piece *tmp;
 	t_coor_piece *tmp1;
 
-	tmp1 = begin_list[0]->next;
-	while (tmp1->next != NULL)
+	tmp1 = begin_list[0];
+	if (tmp1->next)
 	{
-		tmp = tmp1;
 		tmp1 = tmp1->next;
-		ft_memdel((void **)&tmp);
+		while (tmp1 != NULL)
+		{
+			tmp = tmp1;
+			tmp1 = tmp1->next;
+			ft_memdel((void **)&tmp);
+		}
 	}
 	//ft_memdel((void **)&begin_list);
 	free(begin_list[0]);

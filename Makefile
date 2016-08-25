@@ -12,7 +12,7 @@
 
 NAME=		ajubert.filler
 COMPILER=	gcc
-FLAG=		-Wall -Werror -Wextra
+FLAG=		-g -Wall -Werror -Wextra
 LIB=		libft.a
 INCLUDES=	-I ./libft/includes/
 vpath %.c
@@ -65,7 +65,6 @@ SRC_C=	main.c\
 		verif_valid_circle.c\
 		move_to_random.c\
 		test_valid_point_me.c\
-		free_maillon.c\
 		ft_error_map.c\
 		init_card.c\
 		init_pos_card.c\

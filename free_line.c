@@ -12,11 +12,11 @@
 
 #include "filler.h"
 
-void	free_line(char *line)
+void	free_line(char **line)
 {
-	if (line)
+	if (line && line[0])
 	{
-		free(line);
-		line = NULL;
+		free(line[0]);
+		line[0] = NULL;
 	}
 }

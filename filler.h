@@ -149,7 +149,7 @@ int					what_horizon(int var, int center);
 int					what_strat(t_e *e);
 int					calc_dist_circle(t_e *e);
 void				search_char(t_e *e);
-void				free_line(char *line);
+void				free_line(char **line);
 void				free_map(char **map, int y);
 void				free_piece(char **piece, int y);
 int					move_to_mid(t_e *e);

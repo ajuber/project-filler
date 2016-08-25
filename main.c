@@ -69,6 +69,7 @@ static int		calc(t_e *e)
 		return (0);
 	ft_printf("%d %d\n", e->pos_piece.y, e->pos_piece.x);
 	free_piece(e->piece, e->size_piece.y);
+//	e->coor_piece = NULL;
 	ft_free_list_coor(&e->coor_piece);
 	return (1);
 }
@@ -78,7 +79,7 @@ int				main(void)
 	t_e		e;
 
 	ft_bzero(&e, sizeof(t_e));
-	e.fd1 = open("output.txt", O_CREAT | O_RDWR | O_APPEND, 0640);
+	e.fd1 = open("test", O_CREAT | O_RDWR | O_APPEND, 0640);
 	search_char(&e);
 	if (!first_map(&e))
 		return (0);

@@ -41,9 +41,9 @@ static int		check_valid(t_e *e, t_pos pos, t_coor_piece *p)
 void			test_valid_point_me(t_e *e)
 {
 	t_coor_piece	*tmp;
-	int				test;
+//	int				test;
 
-	test = 0;
+//	test = 0;
 	tmp = e->coor_me;
 	while (tmp)
 	{

@@ -34,5 +34,5 @@ void	search_char(t_e *e)
 			e->en = 'O';
 		}
 	}
-	free_line(e->line);
+	free_line(&e->line);
 }

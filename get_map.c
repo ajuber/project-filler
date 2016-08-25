@@ -20,10 +20,10 @@ int		get_map(t_e *e)
 {
 	int j;
 	int fd;
-	int fd1;
+//	int fd1;
 
 	fd = open("output.txt", O_CREAT | O_RDWR | O_APPEND, 0640);
-	fd1 = open("debug.txt", O_CREAT | O_RDWR | O_APPEND, 0640);
+//	fd1 = open("debug.txt", O_CREAT | O_RDWR | O_APPEND, 0640);
 //	(void)e;
 //	write(1, "8 2", 3);
 	e->list = NULL;
@@ -32,9 +32,9 @@ int		get_map(t_e *e)
 	{
 		if (ft_strstr(e->line, "Plateau"))
 		{
-			free_line(e->line);
+			free_line(&e->line);
 			get_next_line(0, &e->line);
-			free_line(e->line);
+			free_line(&e->line);
 			j = 0;
 			while (get_next_line(0, &e->line) > 0)
 			{
@@ -51,15 +51,15 @@ int		get_map(t_e *e)
 						e->strat = 3;
 					else
 						e->nb_en = e->nb_en_new;
-					free_line(e->line);
+					free_line(&e->line);
 					return (1);
 				}
-				free_line(e->line);
+				free_line(&e->line);
 			}
 		}
-		free_line(e->line);
+		free_line(&e->line);
 	}
-	free_line(e->line);
+	free_line(&e->line);
 	/*	e->list = push_back_str(e->list, e->line);
 		//if (e->line[1] == 'i')
 		//	test++;

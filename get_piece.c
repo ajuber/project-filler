@@ -29,7 +29,7 @@ int		get_piece(t_e *e)
 			if (!recup_size_piece(e, e->line))
 				return (0);
 			j = 0;
-			free_line(e->line);
+			free_line(&e->line);
 			while (get_next_line(0, &e->line) > 0)
 			{
 				if (!recup_piece(e, j, e->line))
@@ -37,14 +37,14 @@ int		get_piece(t_e *e)
 				j++;
 				if (j == e->size_piece.y)
 				{
-					free_line(e->line);
+					free_line(&e->line);
 					return (1);
 				}
-				free_line(e->line);
+				free_line(&e->line);
 			}
 		}
-		free_line(e->line);
+		free_line(&e->line);
 	}
-	free_line(e->line);
+	free_line(&e->line);
 	return (0);
 }

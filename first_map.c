@@ -26,9 +26,9 @@ int		first_map(t_e *e)
 		{
 			if (!recup_size_tab(e, e->line))
 				return (0);
-			free_line(e->line);
+			free_line(&e->line);
 			get_next_line(0, &e->line);
-			free_line(e->line);
+			free_line(&e->line);
 			j = 0;
 			while (get_next_line(0, &e->line) > 0)
 			{
@@ -38,14 +38,14 @@ int		first_map(t_e *e)
 				if (j == e->size_map.y)
 				{
 					ft_error_map(e);
-					free_line(e->line);
+					free_line(&e->line);
 					return (1);
 				}
-				free_line(e->line);
+				free_line(&e->line);
 			}
 		}
-		free_line(e->line);
+		free_line(&e->line);
 	}
-	free_line(e->line);
+	free_line(&e->line);
 	return (0);
 }
