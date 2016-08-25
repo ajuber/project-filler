@@ -6,23 +6,24 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/12 14:42:34 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 11:03:33 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/25 12:08:15 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
-void	free_map(char **map, int y)
+void	free_map(char ***map, int y)
 {
 	int i;
 
 	i = 0;
-	while (i < y)
+	while (map[0] && map[0][i] && i < y)
 	{
-		free(map[i]);
-		map[i] = NULL;
+		free(map[0][i]);
+		map[0][i] = NULL;
 		i++;
 	}
-	free(map);
-	map = NULL;
+	if (map[0])
+		free(map[0]);
+	map[0] = NULL;
 }

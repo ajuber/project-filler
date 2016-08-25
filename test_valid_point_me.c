@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/23 01:30:12 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 10:09:36 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/25 13:05:01 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ static int		check_valid(t_e *e, t_pos pos, t_coor_piece *p)
 void			test_valid_point_me(t_e *e)
 {
 	t_coor_piece	*tmp;
-//	int				test;
 
-//	test = 0;
 	tmp = e->coor_me;
 	while (tmp)
 	{

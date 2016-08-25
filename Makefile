@@ -6,7 +6,7 @@
 #    By: ajubert <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/05 14:28:27 by ajubert           #+#    #+#              #
-#    Updated: 2016/08/24 09:52:06 by ajubert          ###   ########.fr        #
+#    Updated: 2016/08/25 14:20:02 by ajubert          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,10 @@ SRC_C=	main.c\
 		init_pos_card.c\
 		new_card.c\
 		ft_init_pos.c\
-		fin_filler.c
+		fin_filler.c\
+		under_other_to.c\
+		under_other_to_en.c\
+		under_other_to_mid.c
 
 SRC_O=		$(SRC_C:.c=.o)
 

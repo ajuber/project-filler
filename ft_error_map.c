@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/23 07:42:54 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 08:52:52 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/25 12:49:55 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 void	ft_error_map(t_e *e)
 {
-//	int count_en;
-//	int count_me;
 	int y;
 	int x;
 
 	y = 0;
-//	count_en = 0;
-//	count_me = 0;
 	while (y < e->size_map.y)
 	{
 		x = 0;

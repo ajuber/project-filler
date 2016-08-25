@@ -6,29 +6,34 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/08/15 00:48:03 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/23 12:03:45 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/25 14:22:46 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "filler.h"
 
+static int		under_first(t_e *e, t_coor_piece **tmp)
+{
+	tmp[0] = e->coor_me;
+	while (tmp[0] && tmp[0]->valid == 0)
+		tmp[0] = tmp[0]->next;
+	if (tmp[0] == NULL)
+		return (0);
+	e->ind = tmp[0];
+	return (1);
+}
+
 static int		search_first_point(t_e *e)
 {
-	int dist_tmp;
-	int dist_min;
-	int			j;
-	t_coor_piece *tmp;
+	int				dist_tmp;
+	int				dist_min;
+	int				j;
+	t_coor_piece	*tmp;
 
 	j = 1;
-//		ft_printf_fd(e->fd, "pendant search_first_point avant pointeur\n");
-	tmp = e->coor_me;
-	while (tmp && tmp->valid == 0)
-		tmp = tmp->next;
-	if (tmp == NULL)
+	if (!(under_first(e, &tmp)))
 		return (0);
-	e->ind = tmp;
 	dist_min = calc_dist_to_center(e, tmp->pos);
-//	ft_printf_fd(e->fd, "e->nb_me : %d\n", e->nb_me);
 	while (j < e->nb_me)
 	{
 		tmp = tmp->next;
@@ -49,7 +54,7 @@ static int		search_first_point(t_e *e)
 
 static int		search_other_point_egal(t_e *e, int dist)
 {
-	t_coor_piece *tmp;
+	t_coor_piece	*tmp;
 	int				dist_tmp;
 
 	tmp = e->coor_me;
@@ -77,38 +82,21 @@ static int		search_other_point_egal(t_e *e, int dist)
 
 static int		search_other_point(t_e *e, int dist)
 {
-	t_coor_piece *tmp;
 	int				dist_tmp;
 	int				dist_min;
 
-	dist_tmp = dist;
-	dist_min = dist;
-	tmp = e->coor_me;
-	while (tmp && tmp->valid == 0)
-		tmp = tmp->next;
-	while (tmp && dist_tmp <= dist)
+	dist_tmp = under_other_to_mid(e, &dist_min, dist);
+	while (e->tmp)
 	{
-		dist_tmp = calc_dist_to_center(e, tmp->pos);
-		if (dist_tmp > dist)
-		{
-			dist_min = dist_tmp;
-			e->ind = tmp;
-		}
-		tmp = tmp->next;
-		while (tmp && tmp->valid == 0)
-			tmp = tmp->next;
-	}
-	while (tmp)
-	{
-		dist_tmp = calc_dist_to_center(e, tmp->pos);
+		dist_tmp = calc_dist_to_center(e, e->tmp->pos);
 		if (dist_tmp < dist_min && dist_tmp > dist)
 		{
 			dist_min = dist_tmp;
-			e->ind = tmp;
+			e->ind = e->tmp;
 		}
-		tmp = tmp->next;
-		while (tmp && tmp->valid == 0)
-			tmp = tmp->next;
+		e->tmp = e->tmp->next;
+		while (e->tmp && e->tmp->valid == 0)
+			e->tmp = e->tmp->next;
 	}
 	if (dist_min != dist)
 	{
@@ -123,10 +111,8 @@ int				search_point_to_mid(t_e *e, int dist)
 {
 	if (dist == -1)
 	{
-//		ft_printf_fd(e->fd, "pendant search_point_to_mid avant search_first_point\n");
 		if (search_first_point(e))
 			return (1);
-//		ft_printf_fd(e->fd, "pendant search_point_to_mid apres search_first_point\n");
 		return (0);
 	}
 	if (search_other_point_egal(e, dist))

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 13:51:02 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 11:03:31 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/25 14:19:40 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ typedef struct		s_e
 	t_coor_piece	*coor_piece;
 	t_coor_piece	*ind;
 	t_coor_piece	*repere;
+	t_coor_piece	*tmp;
 	char			me;
 	char			en;
 	int				nb_en;
@@ -150,7 +151,7 @@ int					what_strat(t_e *e);
 int					calc_dist_circle(t_e *e);
 void				search_char(t_e *e);
 void				free_line(char **line);
-void				free_map(char **map, int y);
+void				free_map(char ***map, int y);
 void				free_piece(char **piece, int y);
 int					move_to_mid(t_e *e);
 int					first_map(t_e *e);
@@ -195,5 +196,8 @@ t_card				init_pos_card(int y, int x);
 t_card				new_card(t_card card, int y, int x);
 void				new_order(t_e *e);
 void				fin_filler(t_e *e);
+int					under_other_to(t_e *e, t_pos cir, int *dist_min, int dist);
+int					under_other_to_en(t_e *e, int *dist_min, int dist);
+int					under_other_to_mid(t_e *e, int *dist_min, int dist);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/25 14:52:24 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/24 10:44:04 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/25 13:03:35 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,17 @@ static int		calc2(t_e *e)
 static int		calc(t_e *e)
 {
 	if (!get_piece(e))
+	{
+		fin_filler(e);
 		return (0);
+	}
 	recup_coord_piece(e);
 	if (!calc1(e))
 		return (0);
 	if (!calc2(e))
 		return (0);
 	ft_printf("%d %d\n", e->pos_piece.y, e->pos_piece.x);
-	free_piece(e->piece, e->size_piece.y);
-//	e->coor_piece = NULL;
+	free_map(&e->piece, e->size_piece.y);
 	ft_free_list_coor(&e->coor_piece);
 	return (1);
 }
@@ -79,10 +81,12 @@ int				main(void)
 	t_e		e;
 
 	ft_bzero(&e, sizeof(t_e));
-	e.fd1 = open("test", O_CREAT | O_RDWR | O_APPEND, 0640);
 	search_char(&e);
 	if (!first_map(&e))
+	{
+		fin_filler(&e);
 		return (0);
+	}
 	if (e.error_map)
 	{
 		fin_filler(&e);
@@ -97,6 +101,6 @@ int				main(void)
 		if (!calc(&e))
 			return (0);
 	}
-	free_map(e.map, e.size_map.y);
+	fin_filler(&e);
 	return (0);
 }
