@@ -6,7 +6,7 @@
 /*   By: ajubert <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 16:23:15 by ajubert           #+#    #+#             */
-/*   Updated: 2016/08/11 19:39:13 by ajubert          ###   ########.fr       */
+/*   Updated: 2016/08/25 14:31:50 by ajubert          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int		count_param(const char *format)
 	return (result);
 }
 
-static t_lst		*pre_calc(const char *format, t_env1 *env1)
+static t_lst	*pre_calc(const char *format, t_env1 *env1)
 {
 	t_env2	env2;
 
@@ -79,7 +79,7 @@ static int		ft_printf_under(const char *format, t_env1 *env)
 	return (0);
 }
 
-int		ft_printf_fd(int fd, const char *format, ...)
+int				ft_printf_fd(int fd, const char *format, ...)
 {
 	t_env1	env;
 
